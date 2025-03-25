@@ -16,9 +16,17 @@ struct Owner
     int age;
 };
 
+enum BRAND
+{
+    TOYOTA,
+    PROTON,
+    LEXUS,
+    MERCEDES
+};
+
 struct Car
 {
-    string brand;
+    BRAND brand;
     Owner carOwner;
 };
 
@@ -31,6 +39,15 @@ struct PayRoll
     double grossPay;
 };
 
+void showData(const Student &stu)
+{
+    cout << "ID: " << stu.id << endl;
+    cout << "Name: " << stu.name << endl;
+    cout << "Year in School: " << stu.yearInSchool << endl;
+    cout << "Address: " << stu.address << endl;
+    cout << "GPA: " << stu.gpa << endl;
+}
+
 int main()
 {
 
@@ -41,11 +58,7 @@ int main()
     stu1.address = "13, Taman Bunga, Selangor";
     stu1.yearInSchool = 2024;
 
-    cout << stu1.id << endl;
-    cout << stu1.name << endl;
-    cout << stu1.address << endl;
-    cout << stu1.yearInSchool << endl;
-    cout << stu1.gpa << endl;
+    showData(stu1);
 
     Student stu2 = {
         "113",
@@ -54,19 +67,35 @@ int main()
         "2, Taman Hayati",
         2.83,
     };
-    cout << "\n"
-         << stu2.id << endl;
-    cout << stu2.name << endl;
-    cout << stu2.address << endl;
-    cout << stu2.yearInSchool << endl;
-    cout << stu2.gpa << endl;
+
+    cout << endl;
+    showData(stu2);
+
+    Student *stuPtr = new Student();
+    stuPtr->id = "131";
+    stuPtr->address = "1, Taman Melawati";
+    (*stuPtr).name = "Chan";
+    stuPtr->yearInSchool = 2025;
+    showData(*stuPtr);
 
     const int NUM_STUDENTS = 10;
     Student stuList[NUM_STUDENTS];
     cout << stuList[2].name;
 
+    enum DAY
+    {
+        MONDAY,
+        TUESDAY,
+        WEDNESDAY,
+        THURSDAY,
+        FRIDAY,
+        SATURDAY,
+        SUNDAY
+    };
+    enum BRAND brandCar = MERCEDES;
+
     Car c1;
-    c1.brand = "Toyota";
+    c1.brand = brandCar;
     c1.carOwner.name = "Ezra";
     c1.carOwner.age = 20;
     cout << "\nCar Brand: " << c1.brand << "\nOwner Name: " << c1.carOwner.name << "\nOwner Age: " << c1.carOwner.age << endl;
@@ -81,5 +110,8 @@ int main()
 
     cout << "Employee Number: " << payroll1.empNumber << endl;
     cout << "Name: " << payroll1.name << endl;
+
+    delete stuPtr;
+    stuPtr = nullptr;
     return 0;
 }
