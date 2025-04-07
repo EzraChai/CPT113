@@ -57,6 +57,7 @@ int main()
         cout << (speakers + i)->TelephoneNumber << endl;
         cout << (speakers + i)->SpeakingTopic << endl;
         cout << (speakers + i)->FeeRequired << endl;
+        cout << endl;
     }
 
     delete[] speakers;
