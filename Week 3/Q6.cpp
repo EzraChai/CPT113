@@ -58,7 +58,7 @@ string displayMonth(int m)
     return "";
 }
 
-main()
+int main()
 {
     WeatherData months[12];
     double totalRainfallForTheYear;
@@ -66,6 +66,7 @@ main()
     int lowestTempMonth;
     double highestTemp;
     int highestTempMonth;
+    double totalAverageTempForTheYear;
 
     for (int i = 0; i < 12; i++)
     {
@@ -99,17 +100,19 @@ main()
             cin >> months[i].lowTemperature;
         }
 
-        if (lowestTemp < months[i].lowTemperature)
+        if (lowestTemp > months[i].lowTemperature)
         {
             lowestTemp = months[i].lowTemperature;
             lowestTempMonth = i;
         }
+        months[i].averageTemperature = (months[i].highTemperature + months[i].lowTemperature) / 2.0;
+        totalAverageTempForTheYear += months[i].averageTemperature;
     }
 
     double average = totalRainfallForTheYear / 12;
     cout << "Average monthly rainfall: " << average << endl;
-    cout << "Highest Temperature: " << highestTemp << "( " << displayMonth(highestTempMonth) << ")" << endl;
-    cout << "Lowest Temperature: " << lowestTemp << "( " << displayMonth(lowestTempMonth) << ")" << endl;
-    
+    cout << "Highest Temperature: " << highestTemp << " (" << displayMonth(highestTempMonth) << ")" << endl;
+    cout << "Lowest Temperature: " << lowestTemp << " (" << displayMonth(lowestTempMonth) << ")" << endl;
+    cout << "Average monthly Temperature: " << totalAverageTempForTheYear / 12.0;
     return 0;
 }
