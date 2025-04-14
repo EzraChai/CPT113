@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0" version="26.2.12">
+  <diagram name="UML Delivery System" id="0Lsa5ux-WwB4oqEBvzWQ">
+    <mxGraphModel dx="718" dy="430" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-21" value="Customer&#xa;- vatNumber: String&#xa;- name: String&#xa;- phoneNumber: String&#xa;- address: String" style="shape=swimlane;whiteSpace=wrap;container=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-22" value="DeliveryCentre&#xa;- name: String&#xa;- address: String" style="shape=swimlane;whiteSpace=wrap;container=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-23" value="Courier&#xa;- vatNumber: String&#xa;- name: String&#xa;- phoneNumber: String" style="shape=swimlane;whiteSpace=wrap;container=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="279.71" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-24" value="Package&#xa;- id: String&#xa;- weight: Double&#xa;- isUrgent: Boolean" style="shape=swimlane;whiteSpace=wrap;container=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-25" style="endArrow=none;startArrow=none;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="TjhT0K7cIYO8G3Vg2adX-21" target="TjhT0K7cIYO8G3Vg2adX-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-26" value="associated with" style="edgeLabel;html=1;align=center;verticalAlign=middle;" vertex="1" connectable="0" parent="TjhT0K7cIYO8G3Vg2adX-25">
+          <mxGeometry x="0.5" y="-0.5" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-27" style="endArrow=none;startArrow=none;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="TjhT0K7cIYO8G3Vg2adX-22" target="TjhT0K7cIYO8G3Vg2adX-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-28" value="employs" style="edgeLabel;html=1;align=center;verticalAlign=middle;" vertex="1" connectable="0" parent="TjhT0K7cIYO8G3Vg2adX-27">
+          <mxGeometry x="0.5" y="-0.5" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-29" style="endArrow=none;startArrow=none;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="TjhT0K7cIYO8G3Vg2adX-24" target="TjhT0K7cIYO8G3Vg2adX-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-30" value="sender / recipient" style="edgeLabel;html=1;align=center;verticalAlign=middle;" vertex="1" connectable="0" parent="TjhT0K7cIYO8G3Vg2adX-29">
+          <mxGeometry x="0.5" y="-0.5" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-31" style="endArrow=none;startArrow=none;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="TjhT0K7cIYO8G3Vg2adX-24" target="TjhT0K7cIYO8G3Vg2adX-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-32" value="assigned to" style="edgeLabel;html=1;align=center;verticalAlign=middle;" vertex="1" connectable="0" parent="TjhT0K7cIYO8G3Vg2adX-31">
+          <mxGeometry x="0.5" y="-0.5" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-33" style="endArrow=none;startArrow=none;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="TjhT0K7cIYO8G3Vg2adX-24" target="TjhT0K7cIYO8G3Vg2adX-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-34" value="origin / destination" style="edgeLabel;html=1;align=center;verticalAlign=middle;" vertex="1" connectable="0" parent="TjhT0K7cIYO8G3Vg2adX-33">
+          <mxGeometry x="0.5" y="-0.5" relative="1" as="geometry">
+            <mxPoint x="70" y="100" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TjhT0K7cIYO8G3Vg2adX-35" value="Use Case" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="330" width="140" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
