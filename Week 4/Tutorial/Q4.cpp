@@ -51,8 +51,8 @@ void Date::setYear(int year)
 
 std::string monthName(int monthNumber)
 {
-    std::string arr[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    return arr[monthNumber - 1];
+    std::string month[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    return month[monthNumber - 1];
 }
 
 void Date::printFormat1() const

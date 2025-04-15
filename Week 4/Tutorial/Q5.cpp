@@ -17,6 +17,7 @@ private:
 
 public:
     Instructor(std::string firstName, std::string lastName, int officeNumber) : first_name(firstName), last_name(lastName), office_number(officeNumber) {};
+    void display();
 };
 
 class Classroom
@@ -27,4 +28,5 @@ private:
 
 public:
     Classroom(int buildingNumber, int roomNumber) : building_number(buildingNumber), room_number(roomNumber) {}
+    void display();
 };
