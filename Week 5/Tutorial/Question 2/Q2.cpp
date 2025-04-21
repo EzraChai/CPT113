@@ -56,6 +56,7 @@ Ellipse area = pi * radius * shortRadius
 #include "Cone.h"
 #include "Cone.cpp"
 #include "Cylinder.h"
+#include "Cylinder.cpp"
 
 int main()
 {
@@ -69,7 +70,8 @@ int main()
     c1.calculateVol();
     c1.print();
 
-    Cylinder cy();
+    Cylinder cylinder;
+    cylinder.print();
 
     return 0;
 }

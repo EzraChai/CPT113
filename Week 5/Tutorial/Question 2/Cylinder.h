@@ -14,19 +14,8 @@ public:
     ~Cylinder() {}
 
     void print() const;
-    void setDimension(double r, double h)
-    {
-        circle.setRadius(r);
-        height = h;
-    }
-    double calculateVol()
-    {
-        volume = PI * circle.getRadius() * circle.getRadius() * height * height;
-    }
-
-    double
-    calcRadian();
-    double calcArea();
+    void setDimension(double r, double h);
+    double calculateVol();
 };
 
 #endif
