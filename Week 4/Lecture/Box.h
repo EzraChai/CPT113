@@ -14,6 +14,7 @@ public:
         height = 0;
         volume = 0;
     }
+    ~Box() {}
 
     Box(double w, double l, double h) : Rectangle(w, l)
     {
