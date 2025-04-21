@@ -57,6 +57,8 @@ Ellipse area = pi * radius * shortRadius
 #include "Cone.cpp"
 #include "Cylinder.h"
 #include "Cylinder.cpp"
+#include "Ellipse.h"
+#include <iostream>
 
 int main()
 {
@@ -72,6 +74,9 @@ int main()
 
     Cylinder cylinder;
     cylinder.print();
+
+    Ellipse el(2, 1);
+    std::cout << "AREA: " << el.calcArea();
 
     return 0;
 }
