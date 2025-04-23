@@ -5,14 +5,14 @@
 class Person
 {
 private:
-    std::string fullName;
+    std::string name;
     std::string state;
     int entryType;
 
 public:
     Person(std::string, std::string, int);
     void setName(std::string);
-    std::string getName() const;
+    std::string getName();
     void setState(std::string);
     std::string getState();
     void setType(int);
