@@ -38,3 +38,13 @@ required (apart from the ones declared in the UML), their definitions need to be
 Write a method called addCourse() that belongs to Student class. If any additional methods are
 required (apart from the ones declared in the UML), their definitions need to be written as well.
  */
+
+#include <iostream>
+#include "Student.h"
+
+int main()
+{
+
+    Student st1("Ezra", "Johor", 1, 232010);
+    return 0;
+}

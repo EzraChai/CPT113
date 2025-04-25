@@ -7,7 +7,7 @@
 class Student : public Person
 {
 private:
-    std::string studentId;
+    int ID;
     Course course;
 
 public:
