@@ -11,25 +11,48 @@ T *sort(T &x, T &y, T &z)
     if (x > y && y > z)
     {
         list[2] = x;
+        if (y > z)
+        {
+            list[0] = z;
+            list[1] = y;
+        }
+        else
+        {
+            list[0] = y;
+            list[1] = z;
+        }
     }
     else if (y > z && y > x)
     {
         list[2] = y;
+        if (x > z)
+        {
+            list[0] = z;
+            list[1] = x;
+        }
+        else
+        {
+            list[0] = x;
+            list[1] = z;
+            list[1] = z;
+        }
     }
     else
     {
         list[2] = z;
+
+        if (x > y)
+        {
+            list[0] = y;
+            list[1] = x;
+        }
+        else
+        {
+            list[0] = x;
+            list[1] = y;
+        }
     }
-    if (x > y)
-    {
-        list[0] = y;
-        list[1] = x;
-    }
-    else
-    {
-        list[0] = x;
-        list[1] = y;
-    }
+
     return list;
 }
 
@@ -46,8 +69,8 @@ void printValues(T *&ptr, int val)
 int main()
 {
     int int1 = 1;
-    int int2 = 2;
-    int int3 = 3;
+    int int2 = 3;
+    int int3 = 2;
     int *intPtr = new int[3];
     intPtr = sort(int1, int2, int3);
     printValues(intPtr, 3);
