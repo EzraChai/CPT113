@@ -23,7 +23,17 @@ public:
     }
     ~List()
     {
-        delete head;
+        Node *currentNode;
+        Node *nextNode;
+
+        currentNode = head;
+
+        while (currentNode)
+        {
+            nextNode = currentNode->next;
+            delete currentNode;
+            currentNode = nextNode;
+        }
     }
 
     void appendNode(int val)
