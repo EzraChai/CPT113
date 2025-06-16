@@ -12,14 +12,17 @@ private:
     {
         T value;        // The value in this node
         ListNode *next; // To point to the next node
-        ListNode *prev;
+        ListNode *prev; // To point to previous node
     };
     ListNode *head; // List head pointer
+    ListNode *tail;
+
 public:
     // Constructor
     LinkedList()
     {
         head = nullptr;
+        tail = nullptr;
     }
     // Destructor
     ~LinkedList();
@@ -42,6 +45,7 @@ void LinkedList<T>::appendNode(T newValue)
     newNode = new ListNode;
     newNode->value = newValue;
     newNode->next = nullptr;
+
     newNode->prev = nullptr;
     // If there are no nodes in the list
     // make newNode the first node.
@@ -56,6 +60,7 @@ void LinkedList<T>::appendNode(T newValue)
             nodePtr = nodePtr->next;
         // Insert newNode as the last node.
         nodePtr->next = newNode;
+        newNode->prev = nodePtr;
     }
 }
 //**************************************************
@@ -85,9 +90,9 @@ void LinkedList<T>::displayList() const
 template <class T>
 void LinkedList<T>::insertNode(T newValue)
 {
-    ListNode *newNode;                // A new node
-    ListNode *nodePtr;                // To traverse the list
-    ListNode *previousNode = nullptr; // The previous node
+    ListNode *newNode; // A new node
+    ListNode *nodePtr; // To traverse the list
+    // ListNode *previousNode = nullptr; // The previous node
     // Allocate a new node and store newValue there.
     newNode = new ListNode;
     newNode->value = newValue;
@@ -96,30 +101,37 @@ void LinkedList<T>::insertNode(T newValue)
     if (!head)
     {
         head = newNode;
-        newNode->next = nullptr;
+        tail = newNode;
     }
     else // Otherwise, insert newNode
     {
         // Position nodePtr at the head of list.
         nodePtr = head;
         // Initialize previousNode to nullptr.
-        previousNode = nullptr;
         // Skip all nodes whose value is less than newValue.
         while (nodePtr != nullptr && nodePtr->value < newValue)
         {
-            previousNode = nodePtr;
             nodePtr = nodePtr->next;
         }
         // If the new node is to be the 1st in the list,
         // insert it before all other nodes.
-        if (previousNode == nullptr)
+        if (nodePtr == head)
         {
             head = newNode;
             newNode->next = nodePtr;
+            nodePtr->prev = newNode;
+        }
+        else if (nodePtr == nullptr)
+        {
+            newNode->prev = tail;
+            tail->next = newNode;
+            tail = newNode;
         }
         else // Otherwise insert after the previous node.
         {
-            previousNode->next = newNode;
+            nodePtr->prev->next = newNode;
+            newNode->prev = nodePtr->prev;
+            nodePtr->prev = newNode;
             newNode->next = nodePtr;
         }
     }
@@ -132,8 +144,8 @@ void LinkedList<T>::insertNode(T newValue)
 template <class T>
 void LinkedList<T>::deleteNode(T searchValue)
 {
-    ListNode *nodePtr;      // To traverse the list
-    ListNode *previousNode; // To point to the previous node
+    ListNode *nodePtr; // To traverse the list
+    // ListNode *previousNode; // To point to the previous node
     // If the list is empty, do nothing.
     if (!head)
         return;
@@ -152,7 +164,6 @@ void LinkedList<T>::deleteNode(T searchValue)
         // not equal to num.
         while (nodePtr != nullptr && nodePtr->value != searchValue)
         {
-            previousNode = nodePtr;
             nodePtr = nodePtr->next;
         }
         // If nodePtr is not at the end of the list,
@@ -160,7 +171,10 @@ void LinkedList<T>::deleteNode(T searchValue)
         // nodePtr, then delete nodePtr.
         if (nodePtr)
         {
-            previousNode->next = nodePtr->next;
+            nodePtr->prev->next = nodePtr->next;
+            nodePtr->next->prev = nodePtr->prev;
+            // previousNode->next = nodePtr->next;
+            // nodePtr->next->prev = previousNode;
             delete nodePtr;
         }
     }

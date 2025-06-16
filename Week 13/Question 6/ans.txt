@@ -1,0 +1,19 @@
+State the base and general cases.
+
+BASE CASE
+
+if (x==y)
+    return x;
+else if (x > y)
+    return x+y;
+
+GENERAL CASE
+
+return myRec(x+1, y-1)
+
+
+What is the output for the recursive calls myRec(5,10)? Show your working.
+myRec(6,9)
+myRec(7,8)
+myRec(8,7)
+return 8+7 = 15
