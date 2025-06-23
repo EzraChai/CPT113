@@ -20,9 +20,5 @@ int sumSquares(int num)
     {
         return 0;
     }
-    else if (num == 1)
-    {
-        return 1;
-    }
     return num * num + sumSquares(num - 1);
 }

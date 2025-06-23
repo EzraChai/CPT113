@@ -14,9 +14,34 @@ void move(int num, int A, int B, int C)
     }
 }
 
+int sumOfFirstNNumbers(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return n + sumOfFirstNNumbers(n - 1);
+}
+
+int sumofSquares(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    if (n == 1)
+    {
+        return 1;
+    }
+    return n * n + sumofSquares(n - 1);
+}
+
 int main()
 {
     int num;
+    // 1 + 2 + 3 + 4 = 10
+    std::cout << sumOfFirstNNumbers(4) << std::endl;
+    std::cout << sumofSquares(2) << std::endl;
     std::cout << "Enter the number of disks: ";
     std::cin >> num;
     move(num, 1, 2, 3);

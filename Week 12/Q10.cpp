@@ -22,3 +22,17 @@ bool isPalindrome(std::string text, int left, int right)
 
     return isPalindrome(text, left + 1, right - 1);
 }
+
+void reverseString(std::string &word, int left, int right)
+{
+    if (left >= right)
+    {
+        return;
+    }
+
+    char temp = word[left];
+    word[left] = word[right];
+    word[right] = temp;
+
+    reverseString(word, left + 1, right - 1);
+}
