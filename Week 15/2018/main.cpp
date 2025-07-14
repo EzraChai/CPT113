@@ -7,19 +7,19 @@ struct Node
     Node *next;
 };
 
-void insert(Node **p, int v)
+void insert(Node **head, int v)
 {
     Node *newNode = new Node;
     newNode->value = v;
     newNode->next = nullptr;
 
-    if (*p == nullptr)
+    if (*head == nullptr)
     {
-        *p = newNode;
+        *head = newNode;
         return;
     }
 
-    Node *currentPtr = *p;
+    Node *currentPtr = *head;
     Node *prevPtr = nullptr;
 
     while (currentPtr != nullptr && currentPtr->value < v)
@@ -30,7 +30,7 @@ void insert(Node **p, int v)
     if (prevPtr == nullptr)
     {
         newNode->next = currentPtr;
-        *p = newNode;
+        *head = newNode;
     }
     else
     {
